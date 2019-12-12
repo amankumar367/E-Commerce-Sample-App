@@ -3,4 +3,9 @@
 
     <string name="home">Home</string>
     <string name="cart">Cart</string>
+    <string name="add">Add</string>
+
+    // Error String Resources
+    <string name="error_message">Something\nwent wrong\nat our end!</string>
+    <string name="retry">Retry</string>
 </resources>

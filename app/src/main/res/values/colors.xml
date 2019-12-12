@@ -3,4 +3,10 @@
     <color name="colorPrimary">#57912B</color>
     <color name="colorPrimaryDark">#436E22</color>
     <color name="colorAccent">#2A373E</color>
+
+    // Color Resource
+    <color name="error_bg">#E85959</color>
+    <color name="bg_button">#DD4954</color>
+    <color name="bg_button_pressed">#C6DD4954</color>
+    <color name="retry_bg">#4A4A4A</color>
 </resources>

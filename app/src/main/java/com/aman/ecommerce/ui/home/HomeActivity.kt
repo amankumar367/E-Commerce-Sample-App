@@ -2,13 +2,19 @@ package com.aman.ecommerce.ui.home
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.aman.ecommerce.R
+import com.aman.ecommerce.data.model.Products
 import com.aman.ecommerce.data.repo.ProductRepo
+import com.aman.ecommerce.extention.gone
+import com.aman.ecommerce.extention.visible
+import com.aman.ecommerce.ui.adapter.ProductAdapter
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -49,10 +55,34 @@ class HomeActivity : AppCompatActivity() {
 
     private fun updateView(state: HomeState?) {
         when {
-            state!!.loading -> {}
-            state.success -> {}
-            state.failure -> {}
+            state!!.loading -> showLoading()
+            state.success -> setProductRecyclerView(state.data as Products)
+            state.failure -> showError()
         }
+    }
+
+    private fun setProductRecyclerView(products: Products) {
+        hideLoading()
+        rv_product.visible()
+        rv_product.layoutManager = LinearLayoutManager(this)
+        rv_product.adapter = products.products?.let { ProductAdapter(it) }
+
+    }
+
+    private fun showError() {
+        rv_product.gone()
+        groupRetry.visible()
+        hideLoading()
+    }
+
+    private fun showLoading() {
+        rv_product.gone()
+        groupRetry.gone()
+        progressbar.visible()
+    }
+
+    private fun hideLoading() {
+        progressbar.gone()
     }
 
     companion object {

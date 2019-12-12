@@ -2,6 +2,7 @@ package com.aman.ecommerce.ui.home
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -50,7 +51,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun onClicks() {
-
+        btn_retry.setOnClickListener {
+            loadProducts()
+        }
     }
 
     private fun updateView(state: HomeState?) {
@@ -64,6 +67,12 @@ class HomeActivity : AppCompatActivity() {
     private fun setProductRecyclerView(products: Products) {
         hideLoading()
         rv_product.visible()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            layout_home.setBackgroundColor(resources.getColor(android.R.color.white))
+            supportActionBar?.show()
+        }
+
         rv_product.layoutManager = LinearLayoutManager(this)
         rv_product.adapter = products.products?.let { ProductAdapter(it) }
 
@@ -73,6 +82,10 @@ class HomeActivity : AppCompatActivity() {
         rv_product.gone()
         groupRetry.visible()
         hideLoading()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            layout_home.setBackgroundColor(resources.getColor(R.color.error_bg))
+            supportActionBar?.hide()
+        }
     }
 
     private fun showLoading() {

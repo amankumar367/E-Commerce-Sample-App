@@ -30,11 +30,6 @@ class NetworkModule {
             .build()
     }
 
-//    var client = OkHttpClient.Builder()
-//        .sslSocketFactory(sslSocketFactory, x509TrustManager)
-//        .build()
-
-
     private fun unSafeOkHttpClient() :OkHttpClient.Builder {
         val okHttpClient = OkHttpClient.Builder()
         try {

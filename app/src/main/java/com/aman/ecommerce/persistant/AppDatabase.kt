@@ -36,6 +36,7 @@ abstract class AppDatabase: RoomDatabase() {
         }
 
         fun destroyInstance() {
+            Log.d(TAG, " >>> Destroying app database instance")
             INSTANCE = null
         }
     }

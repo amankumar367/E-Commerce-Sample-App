@@ -38,6 +38,10 @@ data class Products(
         @SerializedName("special")
         var special: String?,
 
+        @ColumnInfo(name = "quantity")
+        @SerializedName("quantity")
+        var quantity: Int?,
+
         @Ignore
         @SerializedName("description")
         val description: String?,
@@ -59,10 +63,6 @@ data class Products(
         val productId: String?,
 
         @Ignore
-        @SerializedName("quantity")
-        val quantity: Int?,
-
-        @Ignore
         @SerializedName("sku")
         val sku: String?,
 
@@ -75,8 +75,8 @@ data class Products(
         val zoomThumb: String?
     ) : Parcelable {
         constructor() : this(
-            id = "0", image = "",  name = "", price = "", special= "", description = "",
-            href = "", images = null, options = null, productId = "", quantity = null, sku = "",
+            id = "0", image = "",  name = "", price = "", special= "", quantity = 0,
+            description = "", href = "", images = null, options = null, productId = "", sku = "",
             thumb = "", zoomThumb = "")
     }
 }

@@ -14,14 +14,20 @@ import com.aman.ecommerce.data.model.Products
 import com.aman.ecommerce.data.repo.ProductRepo
 import com.aman.ecommerce.extention.gone
 import com.aman.ecommerce.extention.visible
+import com.aman.ecommerce.persistant.AppDatabase
 import com.aman.ecommerce.ui.adapter.ProductAdapter
 import kotlinx.android.synthetic.main.activity_home.*
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 class HomeActivity : AppCompatActivity() {
 
     private val productRepo = ProductRepo()
 
     private lateinit var viewModel: HomeViewModel
+
+    private lateinit var mDB: AppDatabase
+    private lateinit var executor: Executor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +42,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun init() {
         Log.d(TAG, " >>> Initializing viewModel")
+
+        mDB = AppDatabase.getInstance(this)!!
+        executor = Executors.newSingleThreadExecutor()
+
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         viewModel.setRepository(productRepo)
     }
@@ -74,7 +84,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         rv_product.layoutManager = LinearLayoutManager(this)
-        rv_product.adapter = products.products?.let { ProductAdapter(it) }
+        rv_product.adapter = products.products?.let { ProductAdapter(it, mDB, executor) }
 
     }
 

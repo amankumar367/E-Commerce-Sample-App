@@ -9,4 +9,6 @@
     <color name="bg_button">#DD4954</color>
     <color name="bg_button_pressed">#C6DD4954</color>
     <color name="retry_bg">#4A4A4A</color>
+
+    <color name="gray_10">#FFCECBCB</color>
 </resources>

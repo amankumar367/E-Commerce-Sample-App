@@ -105,6 +105,15 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_item_count"
         app:layout_constraintTop_toTopOf="@+id/tv_item_count" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_base_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupAddToCart"
         android:layout_width="wrap_content"

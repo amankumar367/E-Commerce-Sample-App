@@ -37,7 +37,7 @@ class CartViewModel(private val database: AppDatabase): ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe( {
-                    state = if (it != null) {
+                    state = if (it.isNullOrEmpty().not()) {
                         state.copy(
                             loading = false,
                             success = true,

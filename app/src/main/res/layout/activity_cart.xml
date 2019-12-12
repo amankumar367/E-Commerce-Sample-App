@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_thin"
-        android:text="@string/error_message"
+        android:text="@string/cart_error_message"
         android:textColor="@android:color/background_light"
         android:textSize="56sp"
         app:layout_constraintBottom_toBottomOf="parent"

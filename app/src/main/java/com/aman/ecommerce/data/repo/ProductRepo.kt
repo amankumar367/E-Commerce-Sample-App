@@ -54,6 +54,8 @@ class ProductRepo: ProductRepoI {
         return Single.create<List<Products.Product>> { emitter ->
             database.productDao().getAllProducts()?.let {
                 emitter.onSuccess(it)
+            } ?.run {
+                emitter.onSuccess(listOf())
             }
         }
     }

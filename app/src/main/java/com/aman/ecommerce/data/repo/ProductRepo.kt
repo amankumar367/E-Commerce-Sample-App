@@ -4,11 +4,13 @@ import android.util.Log
 import com.aman.ecommerce.EcomApplication
 import com.aman.ecommerce.data.model.Products
 import com.aman.ecommerce.network.ApiInterface
+import com.aman.ecommerce.persistant.AppDatabase
 import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import java.lang.Exception
 import javax.inject.Inject
 
 class ProductRepo: ProductRepoI {
@@ -45,6 +47,14 @@ class ProductRepo: ProductRepoI {
                     emitter.onError(t)
                 }
             })
+        }
+    }
+
+    override fun getLocalProductList(database: AppDatabase): Single<List<Products.Product>> {
+        return Single.create<List<Products.Product>> { emitter ->
+            database.productDao().getAllProducts()?.let {
+                emitter.onSuccess(it)
+            }
         }
     }
 

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -16,9 +18,11 @@ import com.aman.ecommerce.extention.gone
 import com.aman.ecommerce.extention.visible
 import com.aman.ecommerce.persistant.AppDatabase
 import com.aman.ecommerce.ui.adapter.ProductAdapter
+import com.aman.ecommerce.ui.cart.CartActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -106,6 +110,27 @@ class HomeActivity : AppCompatActivity() {
 
     private fun hideLoading() {
         progressbar.gone()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_cart -> {
+                CartActivity.start(this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        AppDatabase.destroyInstance()
     }
 
     companion object {

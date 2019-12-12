@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">E-Commerce-Sample-App</string>
+    <string name="app_name">Vajro E-Commerce</string>
 
     <string name="home">Home</string>
+    <string name="cart">Cart</string>
 </resources>

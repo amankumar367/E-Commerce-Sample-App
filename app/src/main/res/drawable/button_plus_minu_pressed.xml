@@ -6,6 +6,6 @@
         android:radius="3dp"/>
 
     <solid
-        android:color="@color/bg_button_pressed"/>
+        android:color="@color/bg_button" />
 
 </shape>

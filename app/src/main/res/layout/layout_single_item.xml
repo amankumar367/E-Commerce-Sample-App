@@ -54,15 +54,63 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_button"
+        android:fontFamily="sans-serif-thin"
         android:text="@string/add"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_product_spacial_price"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_plus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_plus_minus_button"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/plus"
+        android:textColor="@color/bg_button"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_product_spacial_price"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/default_iteam_count"
+        android:textColor="@color/error_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_plus"
+        app:layout_constraintEnd_toStartOf="@+id/btn_plus"
+        app:layout_constraintTop_toTopOf="@+id/btn_plus" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_minus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_plus_minus_button"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/minu"
+        android:textColor="@color/bg_button"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_count"
+        app:layout_constraintEnd_toStartOf="@+id/tv_item_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_count" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupAddToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="btn_plus,btn_minus,tv_item_count" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

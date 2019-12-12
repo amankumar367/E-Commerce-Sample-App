@@ -8,4 +8,7 @@
     // Error String Resources
     <string name="error_message">Something\nwent wrong\nat our end!</string>
     <string name="retry">Retry</string>
+    <string name="plus">+</string>
+    <string name="minu">-</string>
+    <string name="default_iteam_count">0</string>
 </resources>

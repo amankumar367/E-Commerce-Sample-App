@@ -1,9 +1,10 @@
-package com.aman.ecommerce
+package com.aman.ecommerce.ui.home
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.aman.ecommerce.R
 
 class HomeActivity : AppCompatActivity() {
 

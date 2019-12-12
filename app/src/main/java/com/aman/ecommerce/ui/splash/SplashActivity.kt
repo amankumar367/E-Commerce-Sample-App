@@ -1,8 +1,10 @@
-package com.aman.ecommerce
+package com.aman.ecommerce.ui.splash
 
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.aman.ecommerce.R
+import com.aman.ecommerce.ui.home.HomeActivity
 
 class SplashActivity : AppCompatActivity() {
 

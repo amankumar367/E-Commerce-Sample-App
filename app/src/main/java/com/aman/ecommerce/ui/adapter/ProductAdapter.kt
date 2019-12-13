@@ -36,6 +36,7 @@ class ProductAdapter(
 
     override fun onBindViewHolder(holder: ProductVH, position: Int) {
         holder.bind(results[position]!!)
+        holder.setIsRecyclable(false)
     }
 
 

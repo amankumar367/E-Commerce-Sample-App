@@ -51,6 +51,62 @@
         app:layout_constraintStart_toStartOf="@+id/tv_cart_error_message"
         app:layout_constraintTop_toBottomOf="@+id/tv_cart_error_message" />
 
+    <LinearLayout
+        android:id="@+id/ll_total_cart_value"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_cart_product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total_cash_component"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rs 69" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total_save_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_total_cash_component"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_cash_component"
+                tools:text="Save  Rs 69" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_checkout"
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_button"
+                android:text="@string/check_out"
+                android:textColor="@android:color/background_light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupCartRetry"
         android:layout_width="wrap_content"

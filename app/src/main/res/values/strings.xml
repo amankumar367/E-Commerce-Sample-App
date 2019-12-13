@@ -12,4 +12,5 @@
     <string name="plus">+</string>
     <string name="minu">-</string>
     <string name="default_iteam_count">0</string>
+    <string name="check_out">Check Out</string>
 </resources>

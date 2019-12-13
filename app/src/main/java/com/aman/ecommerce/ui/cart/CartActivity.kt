@@ -1,5 +1,6 @@
 package com.aman.ecommerce.ui.cart
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -17,8 +18,8 @@ import com.aman.ecommerce.extention.gone
 import com.aman.ecommerce.extention.visible
 import com.aman.ecommerce.persistant.AppDatabase
 import com.aman.ecommerce.ui.adapter.ProductAdapter
+import com.aman.ecommerce.utils.CalculatePrice
 import kotlinx.android.synthetic.main.activity_cart.*
-import kotlinx.android.synthetic.main.activity_home.*
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
@@ -77,9 +78,16 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setProductRecyclerView(products: List<Products.Product>) {
         hideLoading()
         rv_cart_product.visible()
+        ll_total_cart_value.visible()
+
+        val price = CalculatePrice.calculatePrice(products)
+        val savedPrice = CalculatePrice.calculatePrice(products) - CalculatePrice.calculateSpacialPrice(products)
+        tv_total_cash_component.text = "Rs $price"
+        tv_total_save_amount.text = "Save Rs $savedPrice"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             layout_cart.setBackgroundColor(resources.getColor(android.R.color.white))
@@ -93,6 +101,7 @@ class CartActivity : AppCompatActivity() {
 
     private fun showError() {
         rv_cart_product.gone()
+        ll_total_cart_value.gone()
         groupCartRetry.visible()
         hideLoading()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -103,6 +112,7 @@ class CartActivity : AppCompatActivity() {
 
     private fun showLoading() {
         rv_cart_product.gone()
+        ll_total_cart_value.gone()
         groupCartRetry.gone()
         pb_cart.visible()
     }

@@ -84,8 +84,8 @@ class CartActivity : AppCompatActivity() {
         rv_cart_product.visible()
         ll_total_cart_value.visible()
 
-        val price = CalculatePrice.calculatePrice(products)
-        val savedPrice = CalculatePrice.calculatePrice(products) - CalculatePrice.calculateSpacialPrice(products)
+        val price = CalculatePrice.calculateSpacialPrice(products)
+        val savedPrice = CalculatePrice.calculatePrice(products) - price
         tv_total_cash_component.text = "Rs $price"
         tv_total_save_amount.text = "Save Rs $savedPrice"
 

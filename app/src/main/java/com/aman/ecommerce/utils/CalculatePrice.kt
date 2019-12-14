@@ -11,7 +11,7 @@ object CalculatePrice {
                 val price: Int = removeSpacialChar(product.price!!)
                 val quantity: Int = product.quantity!!.toInt()
 
-                totalPrice += totalPrice + (price * quantity)
+                totalPrice += price * quantity
             }
         }
         return totalPrice
@@ -24,7 +24,7 @@ object CalculatePrice {
                 val specialPrice: Int = removeSpacialChar(product.special!!)
                 val quantity: Int = product.quantity!!.toInt()
 
-                totalSpecialPrice += totalSpecialPrice + specialPrice * quantity
+                totalSpecialPrice += specialPrice * quantity
             }
         }
         return totalSpecialPrice
